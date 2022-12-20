@@ -13,7 +13,7 @@
           <!-- Nav Links-->
           <ul class="hidden md:flex text-gray-700 text-base">
               <li class="px-3 cursor-pointer flex items-center">
-                  <a href="#" class="text-white font-bold tracking-wider">PRAESCRIPTUS <sup>TM</sup></a>
+                  <a href="#" class="text-white font-bold tracking-wider">PRAESCRIPTUS<sup>TM</sup></a>
               </li>
               <li class="px-3 cursor-pointer flex items-center text-white">
                   <a href="#" class="text-white font-bold tracking-wider">CONTACTS</a>
