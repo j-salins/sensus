@@ -17,9 +17,9 @@
     style="height: 80vh;"
   >
     <nav>
-      <div class="mx-auto flex items-center justify-between h-14">
+      <div class="mx-auto flex items-center justify-between md:h-14">
         <!-- Brand-->
-        <img src={sensusLogo} alt="Sensus Logo" class=" max-h-10" />
+        <img src={sensusLogo} alt="Sensus Logo" class="max-h-8 md:max-h-10" />
         <!-- Nav Links-->
         <ul class="hidden md:flex text-gray-700 text-base">
           <li class="px-3 cursor-pointer flex items-center">
@@ -33,11 +33,11 @@
         </ul>
       </div>
     </nav>
-    <div class="flex flex-col w-2/3 flex-1 justify-center">
-      <h1 class="text-white text-8xl font-bold">
+    <div class="flex flex-col md:w-2/3 flex-1 justify-center">
+      <h1 class="text-white text-7xl md:text-8xl font-bold">
         We make <i class=" font-caption">sense.</i>
       </h1>
-      <p class="text-white text-2xl pt-10 max-w-lg">
+      <p class="text-white text-lg md:text-2xl pt-10 max-w-xs md:max-w-lg">
         Be it communications, influencers, event planning, or crisis
         communication – we make sense of it all whatever the task at hand.
       </p>
@@ -45,25 +45,32 @@
   </header>
 
   <section id="praescriptus" class="container bg-sn-light">
-    <h3 class="text-snaccent text-5xl font-bold tracking-tighter">
+    <h3 class="text-snaccent text-5xl font-bold tracking-tighter pb-7 md:pb-10">
       Praescriptus <sup class="text-sm">TM</sup>
     </h3>
-    <div class="flex flex-1 justify-center">
-      <div class="w-1/2">
-        <p>
+    <div class="md:flex flex-1 justify-center">
+      <div class="md:w-1/2">
+        <p class="text-snaccent md:max-w-sm">
           We examine each issue distinctively and create a unique potion by
           following our six senses.
         </p>
       </div>
-      <div class="w-1/2">
-        <h1 class=" text-snaccent text-8xl font-bold">
+      <div class="md:w-1/2">
+        <h1 class=" text-snaccent text-8xl font-bold pb-7 md:pb-10">
           <i class=" font-caption">How</i> it works
         </h1>
-        <p>
+        <p class="text-snaccent md:max-w-lg">
           Our six-step framework is something that experts have been using in
           medicine and other scientific fields where precision is essential. We
           believe that PR shouldn't be treated any differently.
         </p>
+      </div>
+    </div>
+    <div>
+      <div class="flex flex-wrap flex-col w-80 h-56">
+        <div class="flex bg-yellow-300 flex-[0_0_100%]">a</div>
+        <div class="flex bg-green-400 flex-[0_0_50%]">b</div>
+        <div class="flex bg-blue-400 flex-[0_0_50%]">c</div>
       </div>
     </div>
   </section>
