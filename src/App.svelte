@@ -2,6 +2,11 @@
   /* import svelteLogo from './assets/svelte.svg'
   import Counter from './lib/Counter.svelte '*/
   import sensusLogo from './assets/sensus_logo2x.png';
+
+  function handleClick() {
+		alert('no more alerts')
+	}
+
 </script>
 
 <main>
@@ -26,7 +31,13 @@
     <p class="text-white text-2xl pt-10 max-w-lg">Be it communications, influencers, event planning, or crisis communication – we make sense of it all whatever the task at hand.</p>
   </div>
   </header>
-  <section class="container">content section</section>
+  <section class="container">
+    
+    <button on:click|once={handleClick}>
+      Click me
+    </button>
+
+  </section>
   <footer class="container bg-snaccent" style="height: 70vh;">footr </footer>
 </main>
 
