@@ -10,7 +10,9 @@ module.exports = {
         '2xl': '1440px'
       },
       colors: {
-        'snaccent': '#E52229'
+        'snaccent': '#E52229',
+        'sn-light': '#FFF4ED',
+        'sn-dark': '#1A1A1A'
       },
       fontFamily: {
         'caption': ['PT Serif Caption'],
