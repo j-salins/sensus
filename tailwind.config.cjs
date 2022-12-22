@@ -16,6 +16,9 @@ module.exports = {
       },
       fontFamily: {
         'caption': ['PT Serif Caption'],
+      },
+      boxShadow: {
+        'hard': '7px 7px 0 0 hsl(0, 0%, 0%), 14px 14px 0 0 hsl(0, 0%, 10%);'
       }
     },
   },
