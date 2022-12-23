@@ -12,6 +12,6 @@
 
 @layer components{
   .container {
-    @apply max-w-screen-2xl self-center mx-auto px-6 md:px-10 py-10;
+    @apply max-w-screen-xl self-center mx-auto px-6 md:px-10 py-10;
   }
 }
