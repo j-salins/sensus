@@ -1,14 +1,18 @@
 <script>
   import sensusLogo from "./assets/sensus_logo2x.png";
-  import c1 from "./assets/creators/01.png";
-  import c2 from "./assets/creators/02.png";
-  import c3 from "./assets/creators/03.png";
+  import c1 from "./assets/creators/01.jpg";
+  import c2 from "./assets/creators/02.jpg";
+  import c3 from "./assets/creators/03.jpg";
   import icon_red from "./assets/creators/sensus-icon-red.svg";
   import icon_dark from "./assets/creators/sensus-icon-dark.svg";
-  import header_bg from "./assets/creators/header-bg.png"
+  import header_bg from "./assets/creators/header-bg.jpg"
   import about_bg from "./assets/creators/about-bg.png"
+  import contacts_bg from "./assets/creators/contacts-bg.jpg"
 
   import ListItemLarge from "./components/ListItemLarge.svelte";
+
+
+  import { fade, fly } from 'svelte/transition';
 
 
   let list_items = [
@@ -21,14 +25,17 @@
 	];
 
 
-  function handleClick() {
-    alert("no more alerts");
-  }
+  let foo = false;
+
+  setInterval(() => {
+    foo = true;
+  }, 250);
+
 </script>
 
 <main>
-  <header class=" bg-snaccent">
-    <div class="container bg-snaccent self-center flex flex-col bg-fixed bg-cover bg-left bg-no-repeat" style="height: 80vh; background-image: url({header_bg})">
+  <header class=" bg-snaccent bg-fixed bg-left-top bg-[length:170%_auto] md:bg-[length:80%_auto] md:bg-right-top bg-no-repeat" style="background-image: url({header_bg});">
+    <div class="container self-center flex flex-col" style="height: 80vh;">
       <nav>
         <div class="mx-auto flex items-center justify-between md:h-10">
           <!-- Brand-->
@@ -36,34 +43,37 @@
           <!-- Nav Links-->
           <ul class="hidden md:flex text-gray-700 text-base">
             <li class="px-3 cursor-pointer flex items-center">
-              <a href="#" class="text-white font-bold tracking-wider"
-                >PRAESCRIPTUS<sup>TM</sup></a
+              <a href="#praescriptus" class="text-white font-bold tracking-wider hover:shadow-[0_2px_0_0_rgba(255,255,255,100)] hover:transition-all"
+                >PRAESCRIPTUS<sup class="text-[0.65rem] pl-1 font-bold"> TM</sup></a
               >
             </li>
             <li class="px-3 cursor-pointer flex items-center text-white">
-              <a href="#" class="text-white font-bold tracking-wider">CONTACTS</a>
+              <a href="#contacts" class="text-white font-bold tracking-wider hover:shadow-[0_2px_0_0_rgba(255,255,255,100)] hover:transition-all">CONTACTS</a>
             </li>
           </ul>
         </div>
       </nav>
       <div class="flex flex-col md:w-2/3 flex-1 justify-center">
-        <h1 class="text-white text-7xl md:text-8xl font-bold">
+        {#if foo}
+        <h1 in:fade class="text-white text-7xl md:text-8xl font-bold block">
           We make <i class=" font-caption">sense.</i>
         </h1>
-        <p class="text-white text-lg md:text-2xl pt-10 max-w-xs md:max-w-lg">
+        
+        <p in:fade={{delay:300}} class="text-white text-lg md:text-2xl pt-10 max-w-xs md:max-w-lg">
           Be it communications, influencers, event planning, or crisis
           communication – we make sense of it all whatever the task at hand.
         </p>
+        {/if}
       </div>
   </div>
   </header>
 
-  <section id="praescriptus" class="bg-sn-light sm:py-10 md:py-15" >
-    <div class="container md:pb-64 bg-cover md:bg-[length:70%_auto] bg-right-top md:bg-right md:bg-center bg-no-repeat" style="background-image: url({about_bg})">
+  <section id="praescriptus" class="bg-sn-light py-10 md:py-15" >
+    <div class="container md:pb-64 bg-right-bottom bg-[length:270%_auto] md:bg-[length:70%_auto] md:bg-right md:bg-center bg-no-repeat" style="background-image: url({about_bg})">
       <div class="flex pt-7 pb-7 md:pb-10">
         <img src={icon_red} class="mr-3 w-10" alt="">
         <h3 class="text-snaccent text-4xl md:text-5xl font-bold tracking-tighter whitespace-nowrap">
-        Praescriptus <sup class="text-sm">TM</sup>
+        Praescriptus <sup class="text-[1.3rem]">™</sup>
         </h3>
       </div>
       <div class="md:flex flex-1 justify-center ">
@@ -73,7 +83,7 @@
             following our six senses.
           </p>
         </div>
-        <div class="md:w-1/2">
+        <div class="md:w-1/2 md:pl-20">
           <h1 class=" text-snaccent text-7xl font-bold pt-20 pb-7 md:pb-10">
             <i class="font-caption">How</i> it works
           </h1>
@@ -85,25 +95,28 @@
         </div>
       </div>
     </div>
-    <div class="sensus-list my-20 py-20 mx-auto max-w-5xl flex flex-col items-center justify-center gap-10 shadow-hard">
-      <div class="flex justify-items-center"><img src="{ icon_dark }" alt="" class="mr-2"><p class="text-4xl font-bold tracking-tight">Praescriptus<sup>TM</sup></p></div>
+    <div class="sensus-list m-5 py-10 mr-7 md:my-20 md:pt-20 md:mx-auto max-w-5xl flex flex-col items-center justify-center gap-10 shadow-hard">
+      <div class="flex justify-items-center pb-10 ">
+        <img src="{ icon_dark }" alt="" class="mr-2 w-6 md:w-10">
+        <p class="text-3xl md:text-4xl font-bold tracking-tight">Praescriptus<sup class="text-[1.3rem]">™</sup></p></div>
 
       {#each list_items as { title, description }, id}
 
       <ListItemLarge id = {id+1} {title} {description}/>
 
       {/each}
+      <h4 class="text-sn-dark w-full font-bold tracking-[0.45rem] md:ml-[20%] mt-10">MAKING SENSE</h4>
 
     </div>
   </section>
 
-  <section id="makers" class="bg-sn-dark">
+  <section id="makers" class="bg-sn-dark bg-left-top bg-[length:150%_auto] md:bg-[length:100%_auto] md:bg-right-top bg-no-repeat" style="background-image: url({contacts_bg})">
     <div class="container md:p-20">
       <div class="md:w-2/3">
         <h1 class="text-sn-light text-6xl md:text-8xl font-bold">
           There are no two <i class=" font-caption">identical</i>  problems
         </h1>
-        <p class="text-sn-light max-w-sm py-20">
+        <p id="contacts" class="text-sn-light max-w-sm py-20">
           We create tailor-made solutions by relying on top-tier marketing
           expertise and common sense.
         </p>
@@ -114,24 +127,24 @@
       <div class="md:grid md:grid-cols-2 lg:grid-cols-3 justify-items-center md:gap-10">
         <div class="max-w-sm mb-10">
           <img class="mb-5" src={c1} alt="" />
-          <p class=" text-sn-light">Ieva Gorkša</p>
-          <p class=" text-sn-light font-bold">Business Development Director</p>
-          <p class=" text-sn-light">ieva.gorksa@sensus.lv</p>
-          <p class=" text-sn-light">+371 29 117 181</p>
+          <p class=" text-sn-light mb-1">Ieva Gorkša</p>
+          <p class=" text-sn-light mb-1 font-bold">Business Development Director</p>
+          <p class=" text-sn-light mb-1"><a class="hover:hover:border-b-2 hover:transition-all" href="email:ieva.gorksa@sensus.lv">ieva.gorksa@sensus.lv</a></p>
+          <p class=" text-sn-light mb-1"><a class="hover:hover:border-b-2 hover:transition-all" href="tel:+371 29 117 181">+371 29 117 181</a></p>
         </div>
         <div class="max-w-sm mb-10">
           <img class="mb-5" src={c2} alt="" />
-          <p class=" text-sn-light">Iveta Puntuze</p>
-          <p class=" text-sn-light font-bold">Financial Director</p>
-          <p class=" text-sn-light">iveta.puntuze@sensus.lv</p>
-          <p class=" text-sn-light">+371 29 646 255</p>
+          <p class=" text-sn-light mb-1">Iveta Puntuze</p>
+          <p class=" text-sn-light mb-1 font-bold">Financial Director</p>
+          <p class=" text-sn-light mb-1"><a class="hover:hover:border-b-2 hover:transition-all" href="email:iveta.puntuze@sensus.lv">iveta.puntuze@sensus.lv</a></p>
+          <p class=" text-sn-light mb-1"><a class="hover:hover:border-b-2 hover:transition-all" href="tel:+371 29 646 255">+371 29 646 255</a></p>
         </div>
         <div class="max-w-sm mb-10">
           <img class="mb-5" src={c3} alt="" />
-          <p class=" text-sn-light">Kristiāna Pinne</p>
-          <p class=" text-sn-light font-bold">Account Manager</p>
-          <p class=" text-sn-light">kristiana.pinne@sensus.lv</p>
-          <p class=" text-sn-light">+371 26 288 288</p>
+          <p class=" text-sn-light mb-1">Kristiāna Pinne</p>
+          <p class=" text-sn-light mb-1 font-bold">Account Manager</p>
+          <p class=" text-sn-light mb-1"><a class="hover:hover:border-b-2 hover:transition-all" href="email:kristiana.pinne@sensus.lv">kristiana.pinne@sensus.lv</a></p>
+          <p class=" text-sn-light mb-1"><a class="hover:hover:border-b-2 hover:transition-all" href="tel:+371 26 288 288">+371 26 288 288</a></p>
         </div>
       </div>
     </div>
@@ -140,25 +153,24 @@
   <footer class="bg-snaccent">
     <div class="container self-center flex flex-col">
       <div class="flex flex-col w-2/3 flex-1 justify-center">
-        <h1 class="text-white text-7xl md:text-8xl font-bold md:ml-20 py-10">
+        <h1 class="text-white text-7xl md:text-8xl font-bold py-10">
           Let's start making <i class=" font-caption">sense!</i>
         </h1>
       </div>
       <div class="md:flex md:w-7/12">
         <div class=" w-full">
-          <p class="text-sn-light max-w-xs md:ml-20">
+          <p class="text-sn-light max-w-xs">
             Contact us for a consultation and get your prescription.
           </p>
         </div>
         <div class="mt-10 md:mt-0">
-          <p class="text-sn-light">info@sensus.lv</p>
-          <p class="text-sn-light">+371 29 117 181</p>
+          <p class="text-sn-light"><a class="hover:hover:border-b-2 hover:transition-all" href="email:info@sensus.lv">info@sensus.lv</a></p>
+          <p class="text-sn-light"> <a class="hover:hover:border-b-2 hover:transition-all" href="tel:+371 29 117 181">+371 29 117 181</a></p>
         </div>
       </div>
       <h4 class="text-sn-light font-bold tracking-[0.45rem] mt-20 mb-10">MAKING SENSE</h4>
     </div>
   </footer>
 </main>
-
 <style>
 </style>
