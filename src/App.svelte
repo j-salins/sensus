@@ -3,6 +3,8 @@
   import c1 from "./assets/creators/01.jpg";
   import c2 from "./assets/creators/02.jpg";
   import c3 from "./assets/creators/03.jpg";
+  import c4 from "./assets/creators/04.jpg";
+  import c5 from "./assets/creators/05.jpg";
   import icon_red from "./assets/creators/sensus-icon-red.svg";
   import icon_dark from "./assets/creators/sensus-icon-dark.svg";
   import header_bg from "./assets/creators/header-bg.jpg"
@@ -10,6 +12,7 @@
   import contacts_bg from "./assets/creators/contacts-bg.jpg"
 
   import ListItemLarge from "./components/ListItemLarge.svelte";
+  import CreatorLarge from "./components/CreatorLarge.svelte";
 
 
   import { fade, fly } from 'svelte/transition';
@@ -22,6 +25,14 @@
     { title: 'Prescription', description: 'Instruction of <br/> recommendations.' },
     { title: 'Treatment', description: 'Taking action in order to <br/> improve the condition.' },
     { title: 'Prophylaxis', description: 'Ongoing situation control and <br/> prevention.' },
+	];
+
+  let creators = [
+		{ name: 'Ieva Gorkša', occupation: 'Business Development Director', email: 'ieva.gorksa@sensus.lv', tel: '+371 29 117 181', pic: c1 },
+    { name: 'Iveta Puntuze', occupation: 'Financial Director', email: 'iveta.puntuze@sensus.lv', tel: '+371 29 646 255', pic: c2 },
+    { name: 'Kristiāna Pinne', occupation: 'Account Manager', email: 'kristiana.pinne@sensus.lv', tel: '+371 26 288 288', pic: c3 },
+    { name: 'Kristīne Viļuma', occupation: 'Account Manager', email: 'kristine.viluma@sensus.lv', tel: '+371 25 912 461', pic: c4 },
+    { name: 'Agneta Vēmane', occupation: 'Account Manager', email: 'agneta.vemane@sensus.lv', tel: '+371 26 690 634', pic: c5 },
 	];
 
 
@@ -125,27 +136,13 @@
         Meet our board of sense-makers
       </h3>
       <div class="md:grid md:grid-cols-2 lg:grid-cols-3 justify-items-center md:gap-10">
-        <div class="max-w-sm mb-10">
-          <img class="mb-5" src={c1} alt="" />
-          <p class=" text-sn-light mb-1">Ieva Gorkša</p>
-          <p class=" text-sn-light mb-1 font-bold">Business Development Director</p>
-          <p class=" text-sn-light mb-1"><a class="hover:hover:border-b-2 hover:transition-all" href="email:ieva.gorksa@sensus.lv">ieva.gorksa@sensus.lv</a></p>
-          <p class=" text-sn-light mb-1"><a class="hover:hover:border-b-2 hover:transition-all" href="tel:+371 29 117 181">+371 29 117 181</a></p>
-        </div>
-        <div class="max-w-sm mb-10">
-          <img class="mb-5" src={c2} alt="" />
-          <p class=" text-sn-light mb-1">Iveta Puntuze</p>
-          <p class=" text-sn-light mb-1 font-bold">Financial Director</p>
-          <p class=" text-sn-light mb-1"><a class="hover:hover:border-b-2 hover:transition-all" href="email:iveta.puntuze@sensus.lv">iveta.puntuze@sensus.lv</a></p>
-          <p class=" text-sn-light mb-1"><a class="hover:hover:border-b-2 hover:transition-all" href="tel:+371 29 646 255">+371 29 646 255</a></p>
-        </div>
-        <div class="max-w-sm mb-10">
-          <img class="mb-5" src={c3} alt="" />
-          <p class=" text-sn-light mb-1">Kristiāna Pinne</p>
-          <p class=" text-sn-light mb-1 font-bold">Account Manager</p>
-          <p class=" text-sn-light mb-1"><a class="hover:hover:border-b-2 hover:transition-all" href="email:kristiana.pinne@sensus.lv">kristiana.pinne@sensus.lv</a></p>
-          <p class=" text-sn-light mb-1"><a class="hover:hover:border-b-2 hover:transition-all" href="tel:+371 26 288 288">+371 26 288 288</a></p>
-        </div>
+
+        {#each creators as { name, occupation, email, tel, pic }, id}
+
+          <CreatorLarge {name} {occupation} {email} {tel} {pic}/>
+
+        {/each}
+
       </div>
     </div>
   </section>
