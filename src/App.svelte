@@ -31,7 +31,6 @@
 		{ name: 'Ieva Gorkša', occupation: 'Business Development Director', email: 'ieva.gorksa@sensus.lv', tel: '+371 29 117 181', pic: c1 },
     { name: 'Iveta Puntuze', occupation: 'Financial Director', email: 'iveta.puntuze@sensus.lv', tel: '+371 29 646 255', pic: c2 },
     { name: 'Kristiāna Pinne', occupation: 'Account Manager', email: 'kristiana.pinne@sensus.lv', tel: '+371 26 288 288', pic: c3 },
-    { name: 'Kristīne Viļuma', occupation: 'Account Manager', email: 'kristine.viluma@sensus.lv', tel: '+371 25 912 461', pic: c4 },
     { name: 'Agneta Vēmane', occupation: 'Account Manager', email: 'agneta.vemane@sensus.lv', tel: '+371 26 690 634', pic: c5 },
 	];
 
